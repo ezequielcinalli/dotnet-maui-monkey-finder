@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.Runtime;
-
-namespace MonkeyFinder;
+using MonkeyFinder;
 
 [Application]
 public class MainApplication : MauiApplication
