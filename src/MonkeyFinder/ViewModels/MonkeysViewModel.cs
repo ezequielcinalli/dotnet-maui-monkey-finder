@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace MonkeyFinder.ViewModels;
@@ -17,6 +18,8 @@ public partial class MonkeysViewModel : BaseViewModel
         _geolocation = geolocation;
         Title = "Monkey Finder";
     }
+
+    [ObservableProperty] private bool _isRefreshing;
 
     [RelayCommand] 
     private async Task GetClosestMonkey()
@@ -97,6 +100,7 @@ public partial class MonkeysViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
+            IsRefreshing = false;
         }
     }
 }
